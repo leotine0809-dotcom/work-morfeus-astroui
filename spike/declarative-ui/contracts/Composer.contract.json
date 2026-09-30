@@ -1,0 +1,29 @@
+{
+  "component": "Composer",
+  "$generated": {
+    "description": "The message input bar at the bottom of a conversation.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "placeholder": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "sendableWhenEmpty": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": true
+}

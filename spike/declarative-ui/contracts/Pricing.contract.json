@@ -1,0 +1,364 @@
+{
+  "component": "Pricing",
+  "$generated": {
+    "description": "A marketing pricing block: an optional {it,en} heading (eyebrow?/title?/subtitle?) and a monthly/annual billing toggle over plans[], each with name/priceMonthly+priceAnnual/features/cta and an optional badge; exactly one plan is highlighted. All prose is {it,en}; prices are plain currency strings (never translated); the per-feature check glyph and the toggle are resolved internally, never raw code.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "subtitle": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "billing": {
+          "type": "object",
+          "properties": {
+            "monthlyLabel": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "annualLabel": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "perMonth": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "perYear": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "annualNote": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "groupLabel": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "defaultBilling": {
+          "type": "string",
+          "enum": [
+            "monthly",
+            "annual"
+          ]
+        },
+        "plans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              },
+              "priceMonthly": {
+                "type": "string"
+              },
+              "priceAnnual": {
+                "type": "string"
+              },
+              "description": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "it": {
+                      "type": "string"
+                    },
+                    "en": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "it",
+                    "en"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "cta": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "object",
+                    "properties": {
+                      "it": {
+                        "type": "string"
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "it",
+                      "en"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "href"
+                ],
+                "additionalProperties": false
+              },
+              "highlighted": {
+                "type": "boolean"
+              },
+              "badge": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "priceMonthly",
+              "priceAnnual",
+              "features",
+              "cta"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "plans"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [
+    "The billing toggle is a real, keyboard-operable control: a role=group with a discernible accessible name (billing cycle) whose two options are native buttons reachable by Tab and activated by Space/Enter, each reflecting its state via aria-pressed, with a visible focus-visible ring (ring-ring offset from the background) in both themes.",
+    "Each plan's feature check glyph is decorative: it is rendered aria-hidden so a screen reader never announces a bare icon name; whether a feature is included is carried entirely by its visible {it,en} feature text, never by the icon or colour alone.",
+    "The recommended plan is signalled by more than colour: it carries a visible {it,en} badge and a distinct structure (lifted/centered card, accent border, filled CTA), so the highlighted plan is identifiable without perceiving the accent hue.",
+    "One heading level per tier with a clean order: the optional section title is a heading (h2) and each plan name is the heading one level below it (h3); the eyebrow is decorative label text. Contrast holds in both dark and light because text uses foreground/muted-foreground and accent surfaces use the accent-driven tokens themed in :root and .dark, so axe A/AA stays clean in both themes and in both billing states."
+  ],
+  "forbidden": [
+    "No raw HTML/code or SVG string in any prop and no dangerouslySetInnerHTML: every text field is an {it,en} plain string, the per-feature check glyph is the owned ICONS name-token resolved internally to a lucide component, and no prop lets a plan supply its own icon/graphic as markup or a ReactNode slot.",
+    "No hardcoded hue or hex/oklch/hsl literal: colour comes only from the accent-driven and semantic tokens (bg-primary / text-primary-foreground / border-primary / border-border / bg-card / text-foreground / text-muted-foreground / --accent-ink / --acc-dim / --acc-line / ring-ring), never a fixed colour value, and spacing/radius use only named scale steps, never an arbitrary [13px]-style bracket.",
+    "No more than one highlighted plan and never zero: the exactly-one-highlighted rule is enforced at the Zod boundary (a declaration with a highlighted-plan count other than one is refused as InvalidComponentPropsError naming plans), never silently rendered.",
+    "No translating the prices: priceMonthly/priceAnnual are plain currency strings (e.g. \"9 EUR\" / \"90 EUR\"), never {it,en} objects, and the language toggle must not alter them; the monthly/annual switch is internal component state, not a raw-code prop."
+  ],
+  "examples": [
+    {
+      "type": "Pricing",
+      "props": {
+        "eyebrow": { "it": "Prezzi", "en": "Pricing" },
+        "title": { "it": "Scegli il tuo piano", "en": "Choose your plan" },
+        "subtitle": { "it": "Passa da mensile ad annuale quando vuoi.", "en": "Switch between monthly and annual anytime." },
+        "billing": {
+          "monthlyLabel": { "it": "Mensile", "en": "Monthly" },
+          "annualLabel": { "it": "Annuale", "en": "Annual" },
+          "perMonth": { "it": "/mese", "en": "/month" },
+          "perYear": { "it": "/anno", "en": "/year" },
+          "annualNote": { "it": "Risparmia con l'annuale", "en": "Save with annual billing" },
+          "groupLabel": { "it": "Ciclo di fatturazione", "en": "Billing cycle" }
+        },
+        "defaultBilling": "monthly",
+        "plans": [
+          {
+            "name": { "it": "Base", "en": "Base" },
+            "priceMonthly": "9 EUR",
+            "priceAnnual": "90 EUR",
+            "description": { "it": "Per iniziare in autonomia.", "en": "To get started on your own." },
+            "features": [
+              { "it": "1 agente", "en": "1 agent" },
+              { "it": "Cronologia 7 giorni", "en": "7-day history" }
+            ],
+            "cta": { "label": { "it": "Inizia", "en": "Get started" }, "href": "/signup" }
+          },
+          {
+            "name": { "it": "Pro", "en": "Pro" },
+            "priceMonthly": "19 EUR",
+            "priceAnnual": "190 EUR",
+            "description": { "it": "Per team che scalano.", "en": "For teams that scale." },
+            "features": [
+              { "it": "Agenti illimitati", "en": "Unlimited agents" },
+              { "it": "Cronologia illimitata", "en": "Unlimited history" },
+              { "it": "Supporto prioritario", "en": "Priority support" }
+            ],
+            "cta": { "label": { "it": "Prova Pro", "en": "Try Pro" }, "href": "/signup?plan=pro" },
+            "highlighted": true,
+            "badge": { "it": "Consigliato", "en": "Recommended" }
+          },
+          {
+            "name": { "it": "Business", "en": "Business" },
+            "priceMonthly": "49 EUR",
+            "priceAnnual": "490 EUR",
+            "description": { "it": "Per organizzazioni.", "en": "For organizations." },
+            "features": [
+              { "it": "SSO e ruoli", "en": "SSO and roles" },
+              { "it": "SLA dedicato", "en": "Dedicated SLA" }
+            ],
+            "cta": { "label": { "it": "Contattaci", "en": "Contact us" }, "href": "/contact" }
+          }
+        ]
+      }
+    }
+  ],
+  "stable": false
+}

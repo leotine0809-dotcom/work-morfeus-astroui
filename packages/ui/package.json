@@ -1,0 +1,60 @@
+{
+  "name": "@astro/ui",
+  "version": "0.1.0",
+  "description": "astro-ui — the astro-style component kit (comms-domain components + overlay primitives + design tokens). Backend-agnostic React/TS.",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    },
+    "./primitives": {
+      "types": "./dist/primitives.d.ts",
+      "import": "./dist/primitives.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens.css"
+  },
+  "scripts": {
+    "generate": "tsx scripts/generate-tokens.ts",
+    "check:tokens": "tsx scripts/generate-tokens.ts --check",
+    "test": "vitest run",
+    "check": "npm run check:tokens && npm run test",
+    "build": "npm run check:tokens && tsup && node -e \"require('fs').copyFileSync('src/styles.css','dist/styles.css');require('fs').copyFileSync('src/tokens.css','dist/tokens.css')\"",
+    "dev": "tsup --watch"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.23",
+    "class-variance-authority": "^0.7.1",
+    "radix-ui": "^1.6.7",
+    "sonner": "^2.0.8",
+    "lucide-react": "^1.40.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "react": "19.2.x",
+    "react-dom": "19.2.x",
+    "tsup": "^8.5.0",
+    "tsx": "^4.23.0",
+    "typescript": "~6.0.2",
+    "vitest": "^4.1.11"
+  }
+}

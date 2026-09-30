@@ -1,0 +1,331 @@
+{
+  "component": "Footer",
+  "$generated": {
+    "description": "A marketing/landing site footer: a required brand { name:{it,en}, optional brandIcon name-token from an owned enum resolved internally, optional tagline:{it,en} } + a required non-empty columns[] (each { heading:{it,en}, links:[{ label:{it,en}, href }] }) + an optional social[] (each { icon name-token from an owned enum resolved internally, href, label:{it,en} }) + a required bottom { copyright:{it,en}, optional legalLinks:[{ label:{it,en}, href }] }; all text is {it,en}. It has a two-view: the narrow view collapses each link column into a keyboard-operable Radix Accordion disclosure (links hidden until its heading is activated), the wide view is an always-open multi-column grid with every link visible; the bottom is a hairline legal bar. No prop carries raw code.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "brandIcon": {
+              "type": "string",
+              "enum": [
+                "zap",
+                "bot",
+                "calendar",
+                "mail",
+                "message-circle",
+                "layers",
+                "workflow",
+                "plug",
+                "shield",
+                "lock",
+                "clock",
+                "globe",
+                "sparkles",
+                "gauge",
+                "check",
+                "share-2",
+                "chevron-down",
+                "menu",
+                "at-sign",
+                "hash",
+                "link",
+                "rss",
+                "send",
+                "star"
+              ]
+            },
+            "tagline": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "columns": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "heading": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              },
+              "links": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "object",
+                      "properties": {
+                        "it": {
+                          "type": "string"
+                        },
+                        "en": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "it",
+                        "en"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "href": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "href"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "heading",
+              "links"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "social": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string",
+                "enum": [
+                  "zap",
+                  "bot",
+                  "calendar",
+                  "mail",
+                  "message-circle",
+                  "layers",
+                  "workflow",
+                  "plug",
+                  "shield",
+                  "lock",
+                  "clock",
+                  "globe",
+                  "sparkles",
+                  "gauge",
+                  "check",
+                  "share-2",
+                  "chevron-down",
+                  "menu",
+                  "at-sign",
+                  "hash",
+                  "link",
+                  "rss",
+                  "send",
+                  "star"
+                ]
+              },
+              "href": {
+                "type": "string"
+              },
+              "label": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "icon",
+              "href",
+              "label"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "bottom": {
+          "type": "object",
+          "properties": {
+            "copyright": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "legalLinks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "object",
+                    "properties": {
+                      "it": {
+                        "type": "string"
+                      },
+                      "en": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "it",
+                      "en"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "label",
+                  "href"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "copyright"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "brand",
+        "columns",
+        "bottom"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [
+    "The narrow-view link columns are real, keyboard-operable disclosures built on Radix Accordion (type=\"multiple\", so each column opens and closes independently and none is forced open): each column heading is a native <button> Accordion.Trigger with an accessible name resolved from its {it,en} heading, exposing aria-expanded (false while collapsed, true while expanded) and aria-controls to its links region; it is reachable by Tab, activated by Enter/Space, moved between with arrow keys, and carries a visible focus-visible ring (ring-ring offset from the background) legible in both themes. A column's links are hidden (not in the accessibility tree) until its heading is activated. On the wide view the same columns are an always-open multi-column grid with a static <h3> heading and every link visible, no disclosure.",
+    "Only the container-width branch is in layout: the narrow accordion is display:none at the wide width and the wide grid is display:none at the narrow width, so a screen reader / axe never double-counts the columns or announces both branches. Both branches render from the SAME declared columns.",
+    "Every declared link, legal link, and social link is a real anchor (<a href>), keyboard-operable and reachable by Tab in DOM order, activating on Enter and navigating to its declared href, each with the same visible focus-visible ring. Each social link carries an accessible name from its {it,en} label (via aria-label) while its lucide glyph is DECORATIVE (aria-hidden), and the accordion open/closed state and the link hover/active affordance are carried by aria-expanded, shape, position, and the revealed links, never by colour alone, so they stay distinguishable to a colour-blind or monochrome viewer.",
+    "One <footer> landmark (nav-free) hosts the whole surface as the AA-verified solid bg-background / text-foreground pairing; secondary and link text uses text-muted-foreground with the accent-driven --accent-ink hover, section and bottom-bar separators are the hairline border-border / border-t dividers, so axe A/AA (text and non-text contrast) is clean in BOTH themes on the wide grid AND on the narrow footer with a column expanded."
+  ],
+  "forbidden": [
+    "No raw HTML/code or SVG string in any prop and no dangerouslySetInnerHTML: every text field (brand name, brand tagline, each column heading, each link label, each social label, the copyright, each legal link label) is an {it,en} plain string, each link is exactly { label:{it,en}, href }, so a declaration can never inject markup, a script, or an icon/graphic as a code or ReactNode slot.",
+    "The brand and social icons are name-tokens only: brandIcon and each social[].icon are the owned iconNameSchema enum resolved internally to a lucide component, and an icon given as a raw SVG/HTML string or an arbitrary name outside the enum is a contract error (InvalidComponentPropsError), never a rendered graphic; there is no other prop through which a declaration supplies its own icon or graphic.",
+    "No hardcoded hue or hex/rgb/hsl/oklch literal and no arbitrary spacing/radius bracket: colour comes only from the accent-driven and semantic tokens (bg-background / text-foreground / text-muted-foreground / border-border / --accent-ink / ring-ring), and spacing/radius use only named scale steps (px-*/py-*/gap-*/pt-*/pb-*/size-*/rounded-*), never a fixed value or a [13px]-style bracket; the dividers are the border-border hairline, not a raw colour or width.",
+    "No newsletter/subscribe form and no language-switcher control in the footer, and no forced-open column prop: the two-view is a container-query structural change (an always-open multi-column grid vs collapsible accordion columns), the narrow columns' open/closed state is internal Radix Accordion state, and there is no prop that supplies nested menus, collapse markup, a form field, or forces a column open."
+  ],
+  "examples": [
+    {
+      "type": "Footer",
+      "props": {
+        "brand": {
+          "name": { "it": "astrobot", "en": "astrobot" },
+          "brandIcon": "bot",
+          "tagline": { "it": "I tuoi agenti al lavoro, in un posto solo.", "en": "Your agents at work, in one place." }
+        },
+        "columns": [
+          {
+            "heading": { "it": "Prodotto", "en": "Product" },
+            "links": [
+              { "label": { "it": "Funzioni", "en": "Features" }, "href": "/features" },
+              { "label": { "it": "Prezzi", "en": "Pricing" }, "href": "/pricing" },
+              { "label": { "it": "Integrazioni", "en": "Integrations" }, "href": "/integrations" }
+            ]
+          },
+          {
+            "heading": { "it": "Risorse", "en": "Resources" },
+            "links": [
+              { "label": { "it": "Documentazione", "en": "Docs" }, "href": "/docs" },
+              { "label": { "it": "Guide", "en": "Guides" }, "href": "/guides" }
+            ]
+          },
+          {
+            "heading": { "it": "Azienda", "en": "Company" },
+            "links": [
+              { "label": { "it": "Chi siamo", "en": "About" }, "href": "/about" },
+              { "label": { "it": "Contatti", "en": "Contact" }, "href": "/contact" }
+            ]
+          }
+        ],
+        "social": [
+          { "icon": "share-2", "href": "https://example.com/share", "label": { "it": "Condividi", "en": "Share" } },
+          { "icon": "rss", "href": "/feed.xml", "label": { "it": "Feed RSS", "en": "RSS feed" } },
+          { "icon": "send", "href": "mailto:ciao@example.com", "label": { "it": "Scrivici", "en": "Email us" } }
+        ],
+        "bottom": {
+          "copyright": { "it": "© 2026 astrobot. Tutti i diritti riservati.", "en": "© 2026 astrobot. All rights reserved." },
+          "legalLinks": [
+            { "label": { "it": "Privacy", "en": "Privacy" }, "href": "/privacy" },
+            { "label": { "it": "Termini", "en": "Terms" }, "href": "/terms" }
+          ]
+        }
+      }
+    }
+  ],
+  "stable": false
+}

@@ -1,0 +1,30 @@
+{
+  "component": "RichText",
+  "$generated": {
+    "description": "A message body string rendered rich: markdown/bare links become clickable, @mentions become accent chips. trust \"peer\" renders links inert (untrusted sender).",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "trust": {
+          "type": "string",
+          "enum": [
+            "full",
+            "peer"
+          ]
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": false
+}

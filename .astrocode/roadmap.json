@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "milestone": 1,
+  "phases": [
+    {
+      "number": 32,
+      "name": "astro-ui installable library",
+      "slug": "32-astro-ui-installable-library",
+      "status": "verified"
+    }
+  ]
+}

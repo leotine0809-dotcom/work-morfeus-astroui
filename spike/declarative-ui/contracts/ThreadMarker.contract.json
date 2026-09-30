@@ -1,0 +1,32 @@
+{
+  "component": "ThreadMarker",
+  "$generated": {
+    "description": "One marker between messages: kind \"date\" = a sticky day pill, kind \"time\" = an inline cluster time, kind \"label\" = a centered divider (thread start / exceptional sender). Never stamp each bubble.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "date",
+            "time",
+            "label"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "kind"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": true
+}

@@ -1,0 +1,32 @@
+{
+  "component": "ListSection",
+  "$generated": {
+    "description": "A collapsible group header for a list; renders its child rows below unless collapsed. Use to group conversation rows (People / Channels, Important / Archived).",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "collapsed": {
+          "type": "boolean"
+        },
+        "dataKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": true
+}

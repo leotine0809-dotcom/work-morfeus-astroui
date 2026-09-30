@@ -1,0 +1,148 @@
+{
+  "component": "CTASection",
+  "$generated": {
+    "description": "A marketing call-to-action band: an optional {it,en} eyebrow + title + optional {it,en} subtitle over a primaryCta and an optional secondaryCta, each { label:{it,en}, href }; all text is {it,en}. The whole section is an accent band (bg-primary/text-primary-foreground) recoloring with the accent knob; the narrow view stacks the text and full-width CTAs centered, the wide view splits text on the left and CTAs on the right. There is no media/icon slot and no prop carries raw code.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "subtitle": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "primaryCta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false
+        },
+        "secondaryCta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "object",
+              "properties": {
+                "it": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "it",
+                "en"
+              ],
+              "additionalProperties": false
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "title",
+        "primaryCta"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [
+    "Both CTAs are real anchors (primaryCta always, secondaryCta when declared), keyboard-operable and reachable by Tab in DOM order, activating on Enter and navigating to their declared href; each carries a visible focus-visible ring rendered in the on-band foreground token and offset to the band colour (ring-primary-foreground, ring-offset-primary), so the focus indicator reads AGAINST the accent band rather than an illegible accent-on-accent ring, in both dark and light.",
+    "The primary/secondary distinction and each CTA's affordance are carried by fill and outline and label, never by colour alone: the primaryCta is a solid bg-primary-foreground chip with a text-primary label, the secondaryCta is an outline/ghost with an on-band foreground border and text-primary-foreground label; both remain distinguishable to a colour-blind or monochrome viewer.",
+    "The band is the AA-verified bg-primary / text-primary-foreground pairing (primary is 0.52 in light and 0.80 in dark, primary-foreground is near-white in light and near-black in dark), and the eyebrow and subtitle use the full-strength paired foreground (text-primary-foreground), never the neutral-surface accent-ink/acc-dim tokens, so text and non-text contrast stay AA ON the band and axe A/AA is clean in BOTH themes.",
+    "One heading per section: the title is an h2 and the eyebrow is decorative label text; no state or meaning is gated behind interaction (the CTAs are plain links, not disclosures), and the section renders identically to assistive tech in the narrow stacked-centered view and the wide left-text/right-actions split, only the layout reorders via the container query."
+  ],
+  "forbidden": [
+    "No raw HTML/code or SVG string in any prop and no dangerouslySetInnerHTML: every text field (eyebrow/title/subtitle and each CTA label) is an {it,en} plain string and each CTA is exactly { label:{it,en}, href }, so a declaration can never inject markup, a script, or an icon/graphic as a code or ReactNode slot.",
+    "No media or icon slot: unlike the Hero there is no prop through which a declaration supplies an image, mockup, glyph, or any graphic; the section is text and links only.",
+    "No hardcoded hue or hex/oklch/hsl literal: colour comes only from the accent-driven and semantic tokens (bg-primary / text-primary-foreground / bg-primary-foreground / text-primary / border-primary-foreground / ring-primary-foreground / ring-offset-primary), never a fixed colour value, so the whole band and both CTAs recolor with the accent knob.",
+    "No accent-hued fill on the band and no ring offset to the neutral background: the primaryCta must NOT take an accent-coloured (bg-primary) fill (accent-on-accent is low-contrast and fails axe on the band), and the focus ring must be offset to the band (ring-offset-primary), not to the page background. Spacing and radius use only named scale steps (gap-*/p-*/py-*/rounded-3xl), never an arbitrary [13px]-style bracket."
+  ],
+  "examples": [
+    {
+      "type": "CTASection",
+      "props": {
+        "eyebrow": { "it": "Pronto a iniziare?", "en": "Ready to start?" },
+        "title": { "it": "Porta la tua squadra su un posto solo", "en": "Bring your team into one place" },
+        "subtitle": { "it": "Inizia gratis oggi, senza carta di credito e senza vincoli.", "en": "Get started free today, no credit card and no commitment." },
+        "primaryCta": { "label": { "it": "Inizia gratis", "en": "Start free" }, "href": "/signup" },
+        "secondaryCta": { "label": { "it": "Scopri come funziona", "en": "See how it works" }, "href": "/tour" }
+      }
+    }
+  ],
+  "stable": false
+}
