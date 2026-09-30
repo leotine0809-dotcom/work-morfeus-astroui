@@ -1,0 +1,30 @@
+name: Import source baseline
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Expand source archive into repository root
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _import
+          mkdir -p _import
+          unzip -q "astro-ui-master.zip" -d _import
+          root="$(find _import -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+          test -n "$root"
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name _import ! -name "astro-ui-master.zip" ! -name .github -exec rm -rf {} +
+          rm -rf .github
+          cp -a "$root"/. .
+          rm -rf _import "astro-ui-master.zip"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: import Astro UI source baseline"
+          git push
