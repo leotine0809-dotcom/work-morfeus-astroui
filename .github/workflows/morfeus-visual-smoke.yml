@@ -1,0 +1,61 @@
+name: Morfeus Visual Smoke
+
+on:
+  push:
+    branches:
+      - morfeus/visual-smoke
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Build Astro UI + visual consumer
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p smoke
+          {
+            npm install
+            npm run build --workspace=@astro/ui
+            npm run build --workspace=declarative-ui
+          } 2>&1 | tee smoke/build.log
+
+      - name: Start UI
+        shell: bash
+        run: |
+          mkdir -p smoke
+          (cd spike/declarative-ui && npm run dev -- --host 127.0.0.1 --port 4173 > ../../smoke/server.log 2>&1 &)
+          ok=0
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:4173/ > smoke/index.html; then ok=1; break; fi
+            sleep 1
+          done
+          test "$ok" = "1"
+
+      - name: Capture screenshots
+        shell: bash
+        run: |
+          CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$CHROME"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=5000 --window-size=1440,1000 --screenshot=smoke/astro-ui-desktop.png http://127.0.0.1:4173/
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --hide-scrollbars --virtual-time-budget=5000 --window-size=390,844 --screenshot=smoke/astro-ui-mobile.png http://127.0.0.1:4173/
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: astro-ui-visual-smoke
+          path: smoke/
+          if-no-files-found: warn
