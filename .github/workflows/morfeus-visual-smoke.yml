@@ -27,7 +27,9 @@ jobs:
           set -o pipefail
           mkdir -p smoke
           {
-            npm install
+            rm -rf node_modules spike/declarative-ui/node_modules
+            npm install --include=optional
+            npm install --no-save -w declarative-ui @tailwindcss/oxide-linux-x64-gnu@4.3.3
             npm run build --workspace=@astro/ui
             npm run build --workspace=declarative-ui
           } 2>&1 | tee smoke/build.log
