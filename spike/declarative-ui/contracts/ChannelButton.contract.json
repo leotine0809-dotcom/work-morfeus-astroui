@@ -1,0 +1,41 @@
+{
+  "component": "ChannelButton",
+  "$generated": {
+    "description": "One channel icon in the left rail (carries the channel key; maps to its own glyph and label). active = current filter, badge = unread count.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "channelKey": {
+          "type": "string",
+          "enum": [
+            "all",
+            "wa",
+            "tg",
+            "slack",
+            "mail",
+            "teams",
+            "cu"
+          ]
+        },
+        "badge": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "dataKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "channelKey"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": false
+}

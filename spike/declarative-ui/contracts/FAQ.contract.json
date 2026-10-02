@@ -1,0 +1,147 @@
+{
+  "component": "FAQ",
+  "$generated": {
+    "description": "A marketing FAQ block: an optional {it,en} heading (eyebrow?/title?/subtitle?) over items[] of { question, answer }; all text is {it,en}. The narrow view is a single-open collapsible accordion, the wide view a 2-column always-open grid; the disclosure chevron is an owned name-token glyph resolved internally, never raw code.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "subtitle": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "items": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              },
+              "answer": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "question",
+              "answer"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [
+    "The narrow view is a real, keyboard-operable disclosure built on the Radix Accordion: each question is a native button trigger reachable by Tab, toggled by Space/Enter, with arrow keys moving between triggers; it reflects its state via aria-expanded (true when open, false when closed) and controls its answer region (aria-controls), and only one answer is open at a time (single-open, collapsible), each trigger carrying a visible focus-visible ring (ring-ring offset from the background) in both themes.",
+    "The disclosure chevron is decorative: it is rendered aria-hidden so a screen reader never announces a bare icon name; the open/closed meaning is carried by the visible {it,en} question text plus the aria-expanded state and the revealed answer, never by the icon or its colour alone (the accent open-item border is only a supplement to the disclosure state).",
+    "The wide view is always-open: every question and answer is visible together in a 2-column grid with no collapsing and no hidden content, so nothing is gated behind interaction on desktop; only the branch that matches the container width is in layout (the other is display:none, so it is neither announced nor double-counted by axe).",
+    "One heading level per tier with a clean order: the optional section title is a heading (h2) and each question is the heading one level below it (h3 on the wide grid), the eyebrow is decorative label text. Contrast holds in both dark and light because text uses foreground/muted-foreground and accent surfaces use the accent-driven tokens themed in :root and .dark, so axe A/AA stays clean in both themes and in both the collapsed and expanded narrow states."
+  ],
+  "forbidden": [
+    "No raw HTML/code or SVG string in any prop and no dangerouslySetInnerHTML: every text field is an {it,en} plain string, the disclosure chevron is the owned ICONS name-token resolved internally to a lucide component, and no prop lets an item supply its own icon/graphic as markup or a ReactNode slot.",
+    "No hardcoded hue or hex/oklch/hsl literal: colour comes only from the accent-driven and semantic tokens (border-primary / border-border / bg-card / bg-background / text-foreground / text-muted-foreground / --accent-ink / --acc-dim / --acc-line / ring-ring), never a fixed colour value, and spacing/radius use only named scale steps, never an arbitrary [13px]-style bracket.",
+    "No empty or missing items: items is required and NON-EMPTY (min 1), and every item must carry both a question and an answer as {it,en} objects; a declaration with items absent, items empty, or an item missing question or answer is refused as InvalidComponentPropsError naming items, never silently rendered.",
+    "No open/closed state driven by re-declared JSON: the narrow single-open accordion is internal component state (Radix Accordion type=single collapsible), not a raw-code prop, and there is no prop that forces an answer open or supplies collapse markup."
+  ],
+  "examples": [
+    {
+      "type": "FAQ",
+      "props": {
+        "eyebrow": { "it": "Supporto", "en": "Support" },
+        "title": { "it": "Domande frequenti", "en": "Frequently asked questions" },
+        "subtitle": { "it": "Le risposte alle domande piu comuni.", "en": "Answers to the most common questions." },
+        "items": [
+          {
+            "question": { "it": "Posso cambiare piano quando voglio?", "en": "Can I change plan anytime?" },
+            "answer": { "it": "Si, puoi passare a un altro piano in qualsiasi momento dalle impostazioni dell'account, senza costi aggiuntivi.", "en": "Yes, you can switch to another plan at any time from your account settings, with no extra fees." }
+          },
+          {
+            "question": { "it": "I miei dati sono al sicuro?", "en": "Is my data safe?" },
+            "answer": { "it": "I dati sono cifrati in transito e a riposo, e non vengono mai condivisi con terze parti senza il tuo consenso.", "en": "Your data is encrypted in transit and at rest, and is never shared with third parties without your consent." }
+          },
+          {
+            "question": { "it": "Offrite una prova gratuita?", "en": "Do you offer a free trial?" },
+            "answer": { "it": "Ogni piano include una prova gratuita di 14 giorni, senza bisogno di carta di credito per iniziare.", "en": "Every plan includes a 14-day free trial, with no credit card required to get started." }
+          }
+        ]
+      }
+    }
+  ],
+  "stable": false
+}

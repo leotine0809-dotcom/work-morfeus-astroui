@@ -1,0 +1,39 @@
+{
+  "component": "AlertBanner",
+  "$generated": {
+    "description": "A dismissible banner making a degrade/notice visible without blocking. tone info/warn; dismiss is host-mediated.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "tone": {
+          "type": "string",
+          "enum": [
+            "info",
+            "warn"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "dismissible": {
+          "type": "boolean"
+        },
+        "dataKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": false
+}

@@ -1,0 +1,39 @@
+{
+  "component": "MessageBubble",
+  "$generated": {
+    "description": "One chat message. direction \"out\" = the viewer's own (accented), \"in\" = the other party's. sender/senderHue label a group bubble; mentionsMe rings it; quoted shows a reply-to; reactions render folded pills; actions (reply/react/forward) appear on hover. trust \"peer\" makes links inert.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "in",
+            "out"
+          ]
+        },
+        "sender": {
+          "type": "string"
+        },
+        "senderHue": {
+          "type": "number"
+        },
+        "msgId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "direction"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": true
+}

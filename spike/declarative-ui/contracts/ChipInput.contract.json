@@ -1,0 +1,32 @@
+{
+  "component": "ChipInput",
+  "$generated": {
+    "description": "A token field that produces chips (recipients, tags). Distinct from Chip (which only displays one). Add/remove host-mediated.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "chips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "dataKey": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "a11y": [],
+  "forbidden": [],
+  "examples": [],
+  "stable": false
+}

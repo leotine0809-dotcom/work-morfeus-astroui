@@ -1,0 +1,166 @@
+{
+  "component": "FeatureGrid",
+  "$generated": {
+    "description": "A marketing feature grid: an optional {it,en} heading (eyebrow?/title?/subtitle?) over items[] of { icon, title, description }; icon is a name from an owned enum resolved internally to a lucide glyph, never raw code; all text is {it,en}.",
+    "props": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "subtitle": {
+          "type": "object",
+          "properties": {
+            "it": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "it",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string",
+                "enum": [
+                  "zap",
+                  "bot",
+                  "calendar",
+                  "mail",
+                  "message-circle",
+                  "layers",
+                  "workflow",
+                  "plug",
+                  "shield",
+                  "lock",
+                  "clock",
+                  "globe",
+                  "sparkles",
+                  "gauge",
+                  "check",
+                  "share-2",
+                  "chevron-down",
+                  "menu",
+                  "at-sign",
+                  "hash",
+                  "link",
+                  "rss",
+                  "send",
+                  "star"
+                ]
+              },
+              "title": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              },
+              "description": {
+                "type": "object",
+                "properties": {
+                  "it": {
+                    "type": "string"
+                  },
+                  "en": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "it",
+                  "en"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "icon",
+              "title",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "a11y": [
+    "Each item's icon is decorative: it is rendered aria-hidden so a screen reader never announces a bare glyph name; the item's meaning is carried entirely by its visible {it,en} title text.",
+    "One heading level per tier with a clean order: the optional section title is a heading (h2) and each item title is the heading one level below it (h3); the eyebrow is decorative label text, not a heading.",
+    "Meaning is never carried by colour or icon alone: every feature is named by its title and described by its description text, legible independent of the accent tint.",
+    "Contrast holds in both dark and light: text uses foreground/muted-foreground and the accent surfaces use the accent-driven tokens, all themed in :root and .dark, so axe A/AA stays clean in both themes."
+  ],
+  "forbidden": [
+    "No raw HTML/code or SVG string in any prop and no dangerouslySetInnerHTML: text is {it,en} plain strings and icon is a name-token from the owned enum resolved internally to a lucide component, never markup or a ReactNode/children icon slot.",
+    "No per-feature link/CTA/href: an item exposes exactly icon + title + description; links and CTAs belong to other components.",
+    "No hardcoded hue or hex/oklch literal: colour comes only from the accent-driven and semantic tokens (text-foreground / text-muted-foreground / border-border / bg-card / --accent-ink / --acc-dim / --acc-line), never a fixed colour value.",
+    "No unknown icon name: an icon outside the curated enum is refused at the Zod boundary as InvalidComponentPropsError, never rendered as raw SVG or crashed on."
+  ],
+  "examples": [
+    {
+      "type": "FeatureGrid",
+      "props": {
+        "eyebrow": { "it": "Perché", "en": "Why" },
+        "title": { "it": "Tutto quello che serve", "en": "Everything you need" },
+        "subtitle": { "it": "Gli agenti al lavoro, in un posto solo.", "en": "Your agents at work, in one place." },
+        "items": [
+          { "icon": "bot", "title": { "it": "Agenti", "en": "Agents" }, "description": { "it": "Orchestra ogni agente da una sola console.", "en": "Orchestrate every agent from one console." } },
+          { "icon": "calendar", "title": { "it": "Calendario", "en": "Calendar" }, "description": { "it": "Programma e delega il lavoro nel tempo.", "en": "Schedule and delegate work over time." } }
+        ]
+      }
+    }
+  ],
+  "stable": false
+}

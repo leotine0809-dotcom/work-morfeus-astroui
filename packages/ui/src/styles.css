@@ -1,0 +1,25 @@
+@custom-variant dark (&:is(.dark *));
+
+/* astro-ui's whole token layer now lives in `tokens.css`, GENERATED from `src/tokens/source.ts`
+   (PD-4, phase 53) — the truth astrobot and astrocalendar both import. No token value is
+   hand-written here any more; this file is the BASE LAYER only (html/body height, body colours +
+   font-family, selection, scrollbar, reduced-motion). */
+@import "./tokens.css";
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-background text-foreground; font-family: var(--font-sans); }
+  ::selection { background: color-mix(in oklch, var(--primary) 30%, transparent); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: color-mix(in oklch, var(--foreground) 12%, transparent); border-radius: 8px; border: 3px solid transparent; background-clip: padding-box; }
+  /* Reduced-motion guard — astrobot omits this (DESIGN-DNA §9 gap); astro-ui ADDS it. Honour the
+     OS preference: near-zero every transition/animation so nothing moves for a motion-sensitive user. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "type": "MessageBubble",
+      "props": {
+        "text": 42,
+        "direction": "out"
+      }
+    }
+  ]
+}
